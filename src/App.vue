@@ -6,8 +6,6 @@
           <ul class="navigation d-flex justify-content-center">
             <li><a href="#drag-component">Drag Window</a></li>
             <li><a href="#socket-component">Socket Component</a></li>
-<!--            <li><a href="#" @click.prevent="loadDrag = !loadDrag">test</a></li>-->
-<!--            <li><a href="#" @click.prevent="loadSocket = !loadSocket">test2</a></li>-->
           </ul>
         </div>
       </div>
@@ -15,16 +13,10 @@
         <div class="col-12">
           <div id="drag-component" style="min-height: 800px">
             <DragComponent/>
-<!--            <observer @on-change="onChangeDrag">-->
-<!--              <DragComponent/>-->
-<!--            </observer>-->
           </div>
           <div style="height:500px"></div>
           <div id="socket-component" style="min-height: 500px">
             <SocketComponent/>
-<!--            <observer @on-change="onChangeSocket">-->
-<!--              <SocketComponent/>-->
-<!--            </observer>-->
           </div>
           <div style="height:200px"></div>
         </div>
@@ -34,16 +26,12 @@
 </template>
 
 <script>
-// import Observer from 'vue-intersection-observer';
 import LoadComponent from './utils/lazy-load-component';
 import LoadEmulation from './components/Load/LoadEmulation';
 
 export default {
   name: 'App',
   components: {
-    // Observer,
-    // DragComponent: () => import('./components/DragComponent'),
-    // SocketComponent: () => import('./components/SocketComponent'),
     DragComponent: LoadComponent({
       componentFactory: () => import('./components/DragComponent'),
       loading: LoadEmulation,
@@ -59,20 +47,7 @@ export default {
       loadSocket: false,
     };
   },
-  methods: {
-    // onChangeDrag(entry) {
-    //   // if (entry.isIntersecting) {
-    //   //   unobserve();
-    //   // }
-    //   console.log(entry.isIntersecting, 1);
-    // },
-    // onChangeSocket(entry) {
-    //   // if (entry.isIntersecting) {
-    //   //   unobserve();
-    //   // }
-    //   console.log(entry.isIntersecting, 2);
-    // },
-  },
+  methods: {},
 };
 </script>
 
